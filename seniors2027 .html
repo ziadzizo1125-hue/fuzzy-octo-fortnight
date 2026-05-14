@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seniors 2027 | Official Film</title>
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: 'Times New Roman', serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* 🌌 الخلفية */
+.universe {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, #0a1128 0%, #000 100%);
+    z-index: -2;
+}
+
+.moon, .sun {
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.moon {
+    top: 10%;
+    right: 5%;
+    background: #fefcd7;
+    box-shadow: 0 0 40px rgba(254, 252, 215, 0.5);
+}
+
+.sun {
+    top: 10%;
+    left: 5%;
+    background: #ffcc33;
+    box-shadow: 0 0 50px rgba(255, 204, 51, 0.5);
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+/* 🚀 عناصر */
+.rocket {
+    position: absolute;
+    font-size: 45px;
+    animation: rocketFly 30s linear infinite;
+}
+
+.ufo {
+    position: absolute;
+    font-size: 25px;
+    animation: ufoMove 20s linear infinite;
+}
+
+@keyframes rocketFly {
+    0% { bottom: -20%; left: 20%; opacity: 0; }
+    10% { opacity: 1; }
+    100% { bottom: 150%; left: 45%; opacity: 0; }
+}
+
+@keyframes ufoMove {
+    0% { left: -10%; top: 40%; }
+    100% { left: 110%; top: 25%; }
+}
+
+/* 🎬 البداية */
+.intro {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: 1.5s;
+}
+
+button {
+    padding: 15px 45px;
+    background: transparent;
+    color: gold;
+    border: 2px solid gold;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: gold;
+    color: black;
+}
+
+/* 🎞️ السكروول */
+.main {
+    display: none;
+    height: 100vh;
+}
+
+.credits-container {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    animation: scrollUp 170s linear infinite; /* 🔥 بطيء */
+}
+
+@keyframes scrollUp {
+    0% { transform: translateY(110vh); }
+    100% { transform: translateY(-1100%); }
+}
+
+.section {
+    margin: 250px auto;
+    max-width: 900px;
+    padding: 0 25px;
+}
+
+.rainbow-text {
+    background: linear-gradient(to right, #ef4444, #f59e0b, #10b981, #3b82f6, #8b5cf6, #ef4444);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbowMove 5s linear infinite;
+}
+
+@keyframes rainbowMove {
+    to { background-position: 200% center; }
+}
+
+.text-ar { direction: rtl; font-size: 2.2rem; line-height: 2.3; }
+.text-en { font-size: 1.6rem; font-style: italic; opacity: 0.9; }
+
+.name { font-size: 3rem; margin: 30px 0; }
+
+.the-end {
+    font-size: 5rem;
+    letter-spacing: 15px;
+    margin-top: 400px;
+}
+
+#music-container { display: none; }
+</style>
+</head>
+
+<body>
+
+<div class="universe" id="universe"></div>
+<div class="moon"></div>
+<div class="sun"></div>
+
+<div class="rocket">🚀</div>
+<div class="ufo">🛸</div>
+
+<div class="intro" id="intro">
+    <h1 class="rainbow-text">SENIORS 2027</h1>
+    <button onclick="start()">ابدأ العرض</button>
+</div>
+
+<div class="main" id="main">
+<div class="credits-container">
+
+<!-- الرسالة -->
+<div class="section">
+<div class="text-ar rainbow-text">
+اليوم نطوي الصفحة الأخيرة من أجمل فصل في حياتنا، لنودع ممرات مدرستنا التي شهدت ضحكاتنا وتعبنا. لقد كنتم نِعم الرفاق في طريق العلم، واليوم نغادر ونحن نحمل في حقائبنا ذكريات لا تُنسى وأحلاماً تعانق السماء.
+</div>
+<div class="text-en rainbow-text">
+Today, we turn the final page of the most beautiful chapter in our lives, bidding farewell to the hallways that witnessed our laughter and struggles.
+</div>
+</div>
+
+<!-- الوداع -->
+<div class="section">
+<div class="text-ar rainbow-text">
+الوداع هنا ليس نهاية الطريق، بل هو بوابة لرحلة أعظم؛ انطلقوا نحو طموحاتكم بكل ثقة، فالعالم ينتظر بصمتكم الخاصة.
+</div>
+<div class="text-en rainbow-text">
+Farewell is not the end of the road, but a gateway to a greater journey.
+</div>
+</div>
+
+<!-- الدعاء -->
+<div class="section">
+<div class="text-ar rainbow-text" style="font-size:2.4rem;">
+اللهم وفّقنا لما تحب وترضى، واجعل النجاح حليفنا في كل خطوة قادمة. اللهم أنِر دروبنا، وبارك لنا في علمنا، واجعل أحلامنا حقيقة تسرّ قلوبنا. يا رب استودعناك مستقبلنا فاجعله أجمل مما نتمنى.. آمين. ✨🤲
+</div>
+<div class="text-en rainbow-text">
+O Allah, guide us to success and illuminate our paths. Make our dreams a reality that gladdens our hearts. We entrust our future to You.. Amen.
+</div>
+</div>
+
+<!-- الأسماء -->
+<div class="section">
+<h2 style="color: gold;">CLASS OF 2027</h2>
+
+<div class="name rainbow-text">Ziad Ahmed</div>
+<div class="name rainbow-text">Youssef Amr</div>
+<div class="name rainbow-text">Mohamed Amr</div>
+<div class="name rainbow-text">Ammar Ehab</div>
+<div class="name rainbow-text">Zeidan Mohamed</div>
+<div class="name rainbow-text">Mahmoud Aqeel</div>
+<div class="name rainbow-text">Jannat Safwat</div>
+<div class="name rainbow-text">Haneen Hisham</div>
+<div class="name rainbow-text">Rokaya Ahmed</div>
+<div class="name rainbow-text">Joudy Mohamed</div>
+</div>
+
+<!-- النهاية -->
+<div class="section">
+<div class="text-ar rainbow-text">
+اللهم وفّقنا لما تحب وترضى...
+</div>
+<div class="text-en rainbow-text">
+O Allah, guide us to success...
+</div>
+</div>
+
+<div class="the-end rainbow-text">THE END</div>
+
+</div>
+</div>
+
+<script>
+function start() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("main").style.display = "block";
+}
+</script>
+
+</body>
+</html>
